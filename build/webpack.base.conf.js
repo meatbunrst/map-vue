@@ -2,9 +2,13 @@
 const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
-const vueLoaderConfig = require('./vue-loader.conf')
+const { VueLoaderPlugin } = require('vue-loader')
 
-function resolve (dir) {
+const os = require('os');
+const HappyPack  = require('happypack');
+const happThreadPool = HappyPack.ThreadPool({size: os.cpus().length});
+
+function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
@@ -20,22 +24,23 @@ const createLintingRule = () => ({
 })
 
 module.exports = {
+  cache: true,
   context: path.resolve(__dirname, '../'),
-  entry: {
-    app: './src/main.js'
-  },
+  entry:["babel-polyfill","./src/main.js"],
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'production'
-      ? config.build.assetsPublicPath
-      : config.dev.assetsPublicPath
+    publicPath:
+      process.env.NODE_ENV === 'production'
+        ? config.build.assetsPublicPath
+        : config.dev.assetsPublicPath
   },
   resolve: {
+    modules: [path.resolve(__dirname, '../node_modules')],
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      api: path.resolve(__dirname, '../src/api')
     }
   },
   module: {
@@ -44,16 +49,32 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        options: vueLoaderConfig
+        options: {
+          loaders: {
+            js: 'happypack/loader?id=js' // 将loader换成happypack
+          }
+        }
       },
       {
         test: /\.js$/,
-        loader: 'babel-loader',
-        include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
+        loader: ['happypack/loader?id=js'], // 将loader换成happypack
+        include: [
+          resolve('src')
+        ], // src是项目开发的目录
+        exclude: [path.resolve('../node_modules')] // 不需要编译node_modules下的js
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-sprite-loader',
+        include: [resolve('src/icons')],
+        options: {
+          symbolId: 'icon-[name]'
+        }
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
+        exclude: [resolve('src/icons')],
         options: {
           limit: 10000,
           name: utils.assetsPath('img/[name].[hash:7].[ext]')
@@ -77,6 +98,15 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new VueLoaderPlugin(),
+    new HappyPack({
+      id: 'js',
+      cache: true,
+      loaders: ['babel-loader?cacheDirectory=true'],
+      threadPool: happThreadPool
+    })
+  ],
   node: {
     // prevent webpack from injecting useless setImmediate polyfill because Vue
     // source contains it (although only uses it if it's native).
