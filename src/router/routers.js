@@ -3,9 +3,6 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-/* Layout */
-import Layout from '../layout/Layout'
-
 /**
  * hidden: true                   if `hidden:true` will not show in the sidebar(default is false)
  * alwaysShow: true               if set true, will always show the root menu, whatever its child routes length
@@ -24,54 +21,21 @@ export const constantRouterMap = [
     meta: { title: '登录', noCache: true },
     component: () => import('@/views/login'),
     hidden: true
-  },
-  {
-    path: '/404',
-    component: () => import('@/views/features/404'),
-    hidden: true
-  },
-  {
-    path: '/401',
-    component: () => import('@/views/features/401'),
-    hidden: true
-  },
-  {
-    path: '/redirect',
-    component: Layout,
-    hidden: true,
-    children: [
-      {
-        path: '/redirect/:path*',
-        component: () => import('@/views/features/redirect')
-      }
-    ]
-  },
-  {
+  }, {
     path: '/',
-    component: Layout,
-    redirect: 'dashboard',
-    children: [
-      {
-        path: 'dashboard',
-        component: () => import('@/views/home'),
-        name: '首页',
-        meta: { title: '首页', icon: 'index', noCache: true, affix: true }
-      }
-    ]
-  },
-  {
-    path: '/user',
-    component: Layout,
-    hidden: true,
-    redirect: 'noredirect',
-    children: [
-      {
-        path: 'center',
-        component: () => import('@/views/system/user/center'),
-        name: '个人中心',
-        meta: { title: '个人中心', icon: 'user' }
-      }
-    ]
+    meta: { title: '首页', noCache: true },
+    component: () => import('@/views/index'),
+    hidden: false
+  }, {
+    path: '/base',
+    meta: { title: '地图侧', noCache: true },
+    component: () => import('@/views/base'),
+    hidden: false
+  }, {
+    path: '/map',
+    meta: { title: '地图测试', noCache: true },
+    component: () => import('@/views/map'),
+    hidden: false
   }
   // { path: '*', redirect: '/404', hidden: true }
 ]
