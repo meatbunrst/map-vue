@@ -7,8 +7,8 @@ import 'element-ui/lib/theme-chalk/index.css'
 import locale from 'element-ui/lib/locale/lang/zh-CN' // lang i18n
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
-import echarts from 'echarts'
 import BaiduMap from 'vue-baidu-map'
+import VCharts from 'v-charts'
 
 import App from './App'
 import router from './router/routers'
@@ -27,10 +27,11 @@ Vue.prototype.qs = qs // 加载的方法
 
 Vue.use(mavonEditor)
 Vue.use(ElementUI, { locale })
-Vue.use(echarts)
 Vue.use(BaiduMap, {
   ak: 'XkbZSGeguPkCDdSW2wD6LIRnzXrBVtLm'
 })
+
+Vue.use(VCharts)
 Vue.config.productionTip = false
 require('babel-polyfill')
 

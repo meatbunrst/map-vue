@@ -1,7 +1,9 @@
 <template>
   <div id="main-content">
     <div class="box-1" @dblclick="mapLoad()">
-      <div class="charts-content"/>
+      <div class="charts-content">
+        <ve-line :data="chartData" :grid="grid" :extend="extend"/>
+      </div>
       <div class="box-txt">box-1，环比增39.8%，同比降：1.2%。月累计手机上网流量5.6亿MB，环比增18.5%，同比增140.9%。</div>
     </div>
     <div class="box-1">
@@ -180,6 +182,36 @@ export default {
   name: 'Home',
   data() {
     return {
+      extend: {
+        'xAxis.0.axisLabel.rotate': 45,
+        yAxis: {
+          splitLine: {
+            show: true,
+            lineStyle: {
+              color: '#303055',
+              width: 0.5
+            }
+          }
+        },
+        textStyle: {
+          color: '#fff'
+        }
+      },
+      chartData: {
+        columns: ['日期', '访问用户', '下单用户', '下单率'],
+        rows: [
+          { 日期: '1/1', 访问用户: 1393, 下单用户: 1093, 下单率: 0.32 },
+          { 日期: '1/2', 访问用户: 3530, 下单用户: 3230, 下单率: 0.26 },
+          { 日期: '1/3', 访问用户: 2923, 下单用户: 2623, 下单率: 0.76 },
+          { 日期: '1/4', 访问用户: 1723, 下单用户: 1423, 下单率: 0.49 },
+          { 日期: '1/5', 访问用户: 3792, 下单用户: 3492, 下单率: 0.323 },
+          { 日期: '1/6', 访问用户: 4593, 下单用户: 4293, 下单率: 0.78 }
+        ]
+      },
+      grid: {
+        bottom: 120
+
+      }
     }
   },
   methods: {
