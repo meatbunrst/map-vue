@@ -7,7 +7,9 @@
       <div class="box-txt">box-1，环比增39.8%，同比降：1.2%。月累计手机上网流量5.6亿MB，环比增18.5%，同比增140.9%。</div>
     </div>
     <div class="box-1">
-      <div class="charts-content"/>
+      <div class="charts-content">
+        <ve-bar :data="chartData" :grid="grid" :extend="extend"/>
+      </div>
       <div class="box-txt">box-12014年6月新增市场份额68.6，同比降低1.3PP，新增通信客户数73万，同比减少41万。</div>
     </div>
     <div class="box-1">
@@ -146,23 +148,38 @@
     </div>
 
     <div class="box-2">
-      <div class="charts-content"/>
+      <div class="charts-content" >
+        <ve-line :data="chartData" :grid="grid" :extend="extend"/>
+      </div>
       <div class="box-txt">box-2，月累计激活套卡42.5万，同比减少19.5万，环比增加1.5万。14日全球通开户1248户，月累计开户1.5万户，同比减少12345户，环比增加2354户</div>
     </div>
     <div class="box-3"/>
     <div class="box-3"/>
     <div class="box-2">
-      <div class="charts-content-2">***********************************************************************************************</div>
+      <div class="charts-content-2">
+        <ve-radar :data="chartData" :grid="grid" :legend-visible="false" :tooltip-visible="false"/>
+      </div>
+      <div class="charts-content-2">
+        <ve-pie :data="chartData" :grid="grid" :legend-visible="false" :tooltip-visible="false"/>
+      </div>
     </div>
     <div class="box-2">
-      <div class="charts-content"/>
+      <div class="charts-content">
+        <ve-bar :data="chartData" :grid="grid" :extend="extend" />
+      </div>
       <div class="box-txt">box-2，月累计激活套卡42.5万，同比减少19.5万，环比增加1.5万。14日全球通开户1248户，月累计开户1.5万户，同比减少12345户，环比增加2354户</div>
     </div>
     <div class="box-2">
-      <div class="charts-content"/>
+      <div class="charts-content">
+        <ve-line :data="chartData" :grid="grid" :extend="extend" />
+      </div>
+      <div class="box-txt">box-2，月累计激活套卡42.5万，同比减少19.5万，环比增加1.5万。14日全球通开户1248户，月累计开户1.5万户，同比减少12345户，环比增加2354户</div>
     </div>
     <div class="box-2">
-      <div class="charts-content"/>
+      <div class="charts-content">
+        <ve-line :data="chartData" :grid="grid" :extend="extend" :legend-visible="false"/>
+      </div>
+      <div class="box-txt">box-2，月累计激活套卡42.5万，同比减少19.5万，环比增加1.5万。14日全球通开户1248户，月累计开户1.5万户，同比减少12345户，环比增加2354户</div>
     </div>
     <div class="box-2">
       <h1 class="v-title">视频监控</h1>
@@ -183,8 +200,23 @@ export default {
   data() {
     return {
       extend: {
-        'xAxis.0.axisLabel.rotate': 45,
+        'xAxis.0.axisLabel.rotate': 25,
+        'legend.textStyle.color': '#fff',
+        /* legend: {
+          textStyle: {
+            color: '#fff'
+          }
+        },*/
         yAxis: {
+          splitLine: {
+            show: true,
+            lineStyle: {
+              color: '#303055',
+              width: 0.5
+            }
+          }
+        },
+        xAxis: {
           splitLine: {
             show: true,
             lineStyle: {

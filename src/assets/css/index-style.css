@@ -7,7 +7,7 @@
 #main-content .box-1 .charts-content-2{width:300px;height:364px; display:block; float:left;overflow: hidden; padding:10px 20px;}
 #main-content .box-1 .box-txt{width:300px;height:64px; font-size:14px;color:#5aa5c5; line-height:24px; text-align:left;display:block; float:left;overflow: hidden; padding:10px 20px;}
 #main-content .box-2{width:680px;height:384px; display:block; float:left;overflow: hidden;position:relative;z-index:1;}
-#main-content .box-2 .charts-content{width:640px;height:auto; display:block; float:left;overflow: hidden; padding:10px 20px;}
+#main-content .box-2 .charts-content{width:640px;height:280px; display:block; float:left;overflow: hidden; padding:10px 20px;}
 #main-content .box-2 .charts-content-2{width:300px;height:364px; display:block; float:left;overflow: hidden; padding:10px 20px;}
 #main-content .star-box{width:300px;height:160px; display:block; float:left;background: url(../images/star-bg.png) no-repeat 0 0;float:left;}
 #main-content .star-box .s-pic{width:50px; height:62px; float:left; margin:54px 0 0 16px;transition: all 0.25s ease-in-out;}
