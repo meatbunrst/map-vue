@@ -1,6 +1,6 @@
 <template>
   <div id="main-content">
-    <div class="box-1" @dblclick="mapLoad()">
+    <div class="box-1" @dblclick="mapLoad">
       <div class="charts-content">
         <ve-line :data="chartData" :grid="grid" :extend="extend"/>
       </div>
@@ -12,7 +12,7 @@
       </div>
       <div class="box-txt">box-12014年6月新增市场份额68.6，同比降低1.3PP，新增通信客户数73万，同比减少41万。</div>
     </div>
-    <div class="box-1">
+    <div class="box-1" @dblclick="mapTest()">
       <div class="charts-content"/>
       <div class="box-txt">box-1，同比减少19.5万，环比增加1.5万。14日全球通开户1248户，月累计开户1.5万户，同比减少12345户，环比增加2354户</div>
     </div>
@@ -247,8 +247,11 @@ export default {
     }
   },
   methods: {
-    mapLoad: function() {
+    mapLoad() {
       this.$router.push({ path: '/base' })
+    },
+    mapTest() {
+      this.$router.push({ path: '/map' })
     }
   }
 }

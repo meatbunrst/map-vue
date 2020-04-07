@@ -4,7 +4,7 @@
     :center="center"
     :scroll-wheel-zoom="true"
     :min-zoom="9"
-    :max-zoom="15"
+    :max-zoom="16"
     class="map">
     <!--  <bm-boundary :stroke-weight="2" name="北京" stroke-color="blue" stroke-style="dashed" fill-color="red"/>-->
     <bm-tile
@@ -18,7 +18,7 @@ export default {
   name: 'Map',
   data() {
     return {
-      zoom: 16,
+      zoom: 12,
       center: {
         //    lng: 113.7840271,
       // lat: 23.05888449
