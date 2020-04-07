@@ -4,7 +4,7 @@
     :center="center"
     :scroll-wheel-zoom="true"
     :min-zoom="9"
-    :max-zoom="16"
+    :max-zoom="15"
     class="map">
     <!--  <bm-boundary :stroke-weight="2" name="北京" stroke-color="blue" stroke-style="dashed" fill-color="red"/>-->
     <bm-tile
