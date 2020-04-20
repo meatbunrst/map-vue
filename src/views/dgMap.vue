@@ -5,6 +5,7 @@
         :data="chartData"
         :settings="chartSettings"
         :legend-visible="false"
+        :extend="extend"
         height="1500px"
         width="1600px"
       />
@@ -21,7 +22,7 @@ export default {
   components: { Background, GoHome },
   data() {
     this.chartSettings = {
-      positionJsonLink: 'http://localhost:7777/map/web/map/getDgDate?tree=2',
+      positionJsonLink: this.$http.adornUrl('/web/map/getDgDate?tree=2'),
       position: 'province/dongguan',
       beforeRegisterMap(json) {
         json = json.data
@@ -29,26 +30,29 @@ export default {
         // json.features[0].properties.cp = [121.509062, 26.044332]
         return json
       },
-      lable: {
-        show: true,
-        fontSize: 30,
-        width: 30,
-        hight: 30
-
-      },
       itemStyle: {
         borderColor: '#5aa5c5',
         borderWidth: '0.8',
-        borderType: 'dashed',
-        shadowColor: 'red',
-        shadowBlur: {
-          shadowColor: 'rgba(0, 0, 0, 0.5)',
-          shadowBlur: 10
-        }
-
+        borderType: 'dashed'
       }
     }
     return {
+      extend: {
+        textStyle: {
+          color: '#fff',
+          fontSize: 16
+        },
+        emphasis: {
+          itemStyle: {
+            areaColor: 'red',
+            borderType: 'dotted'
+          }
+        },
+        geo: {
+          areaColor: 'red'
+        }
+
+      },
       chartData: {
         columns: ['位置', '人口'],
         rows: [
