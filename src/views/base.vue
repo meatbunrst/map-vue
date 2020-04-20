@@ -3,11 +3,7 @@
   <div id="base-content">
     <input id="id1" type="hidden" value="1">
     <!--首页前进后退-->
-    <a class="home" @click="goHome"/>
-    <div class="page-box">
-      <a class="pre" />
-      <a class="next"/>
-    </div>
+    <go-home/>
     <!--全局搜索框-->
     <div id="search">
       <input v-model="searchParam" type="text" @keyup.enter="queryInfo">
@@ -401,9 +397,11 @@
 <script>
 import '@/assets/css/main.css'
 import '@/assets/css/style.css'
+import GoHome from '@/components/go-home'
 
 export default {
   name: 'Base',
+  components: { GoHome },
   data() {
     return {
       searchParam: '',
@@ -417,9 +415,6 @@ export default {
   methods: {
     onload() {
 
-    },
-    goHome() {
-      this.$router.push({ path: '/' })
     },
     queryInfo() {
       alert(111)

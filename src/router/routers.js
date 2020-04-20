@@ -36,6 +36,16 @@ export const constantRouterMap = [
     meta: { title: '地图测试', noCache: true },
     component: () => import('@/views/map'),
     hidden: false
+  }, {
+    path: '/dgMap',
+    meta: { title: '东莞地图测试', noCache: true },
+    component: () => import('@/views/dgMap'),
+    hidden: false
+  }, {
+    path: '/testMap',
+    meta: { title: 'echarts东莞地图测试', noCache: true },
+    component: () => import('@/views/testMap'),
+    hidden: false
   }
   // { path: '*', redirect: '/404', hidden: true }
 ]

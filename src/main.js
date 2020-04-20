@@ -9,6 +9,7 @@ import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
 import BaiduMap from 'vue-baidu-map'
 import VCharts from 'v-charts'
+import echarts from 'echarts'
 
 import App from './App'
 import router from './router/routers'
@@ -30,6 +31,7 @@ Vue.use(ElementUI, { locale })
 Vue.use(BaiduMap, {
   ak: 'XkbZSGeguPkCDdSW2wD6LIRnzXrBVtLm'
 })
+Vue.use(echarts)
 
 Vue.use(VCharts)
 Vue.config.productionTip = false

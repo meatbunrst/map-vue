@@ -14,15 +14,15 @@
     </div>
     <div class="box-1" @dblclick="mapTest()">
       <div class="charts-content"/>
-      <div class="box-txt">box-1，同比减少19.5万，环比增加1.5万。14日全球通开户1248户，月累计开户1.5万户，同比减少12345户，环比增加2354户</div>
+      <div class="box-txt">box-1，全国地图测试</div>
     </div>
     <div class="box-1">
-      <div class="charts-content"/>
-      <div class="box-txt">***********box-1********</div>
+      <div class="charts-content" @dblclick="mapDgTest()"/>
+      <div class="box-txt">box-1,东莞地图测试</div>
     </div>
     <div class="box-1">
-      <div class="charts-content"/>
-      <div class="box-txt">***********box-1********</div>
+      <div class="charts-content" @dblclick="mapDgTest2()"/>
+      <div class="box-txt">box-1,echarts东莞地图测试</div>
     </div>
     <div class="box-1">
       <div class="charts-content"/>
@@ -46,7 +46,7 @@
     </div>
     <div class="box-3">
       <div class="charts-content"/>
-      <div class="box-txt">box3333333333333</div>
+      <div class="box-txt">------</div>
     </div>
     <div class="box-3"/>
     <div class="box-2">
@@ -252,6 +252,12 @@ export default {
     },
     mapTest() {
       this.$router.push({ path: '/map' })
+    },
+    mapDgTest() {
+      this.$router.push({ path: '/dgMap' })
+    },
+    mapDgTest2() {
+      this.$router.push({ path: '/testMap' })
     }
   }
 }

@@ -1,41 +1,70 @@
 <template>
-  <baidu-map
-    :zoom="zoom"
-    :center="center"
-    :scroll-wheel-zoom="true"
-    :min-zoom="9"
-    :max-zoom="15"
-    class="map">
-    <!--  <bm-boundary :stroke-weight="2" name="北京" stroke-color="blue" stroke-style="dashed" fill-color="red"/>-->
-    <bm-tile
-      :is-transparent-png="true"
-      tile-url-template="//developer.baidu.com/map/jsdemo/demo/tiles/{Z}/tile{X}_{Y}.png"/>
-  </baidu-map>
+  <div>
+    <div class="map">
+      <ve-map
+        :data="chartData"
+        :settings="chartSettings"
+        :events="chartEvents"
+        :legend-visible="false"
+        height="2500px"
+        width="1600px"/>
+    </div>
+    <go-home/>
+    <background/>
+  </div>
 </template>
 
 <script>
+import GoHome from '@/components/go-home'
+import Background from '@/components/background'
 export default {
-  name: 'Map',
+  components: { Background, GoHome },
   data() {
-    return {
-      zoom: 12,
-      center: {
-        //    lng: 113.7840271,
-      // lat: 23.05888449
-        lng: 116.332782,
-        lat: 40.007978
+    this.chartSettings = {
+      position: 'china',
+      // selectData: true,
+      selectedMode: 'single',
+      label: true,
+      itemStyle: {
+        normal: {
+          borderColor: '#11ffff'
+        }
+      },
+      aspectScale: 1.2,
+      mapGrid: {
+        left: 30,
+        right: 30,
+        top: 130
+        // bottom: 50
+
+      },
+      zoom: 1.0
+    }
+    this.chartEvents = {
+      click: (v) => {
+        this.cityName = v.name
       }
     }
-  },
-  methods: {
-
+    return {
+      cityName: '',
+      chartData: {
+        columns: ['位置', 'GDP'],
+        rows: [
+          { '位置': '吉林', 'GDP': 123 },
+          { '位置': '北京', 'GDP': 1223 },
+          { '位置': '上海', 'GDP': 2123 },
+          { '位置': '浙江', 'GDP': 4123 }
+        ]
+      }
+    }
   }
 }
 </script>
-
-<style>
-  .map {
-    width: 100%;
-    height: 700px;
-  }
+<style scoped>
+.map{
+  z-index: 100;
+  position: fixed;
+  margin-left: 20%;
+  margin-top: 100px;
+}
 </style>
