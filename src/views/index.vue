@@ -14,23 +14,23 @@
     </div>
     <div class="box-1" @dblclick="mapTest()">
       <div class="charts-content"/>
-      <div class="box-txt">box-1，全国地图测试</div>
+      <div class="box-txt">box-1，v-charts全国地图测试</div>
     </div>
     <div class="box-1">
       <div class="charts-content" @dblclick="mapDgTest()"/>
-      <div class="box-txt">box-1,东莞地图测试</div>
+      <div class="box-txt">box-1,v-charts东莞地图下钻测试</div>
     </div>
     <div class="box-1">
       <div class="charts-content" @dblclick="mapDgTest2()"/>
-      <div class="box-txt">box-1,echarts东莞地图测试</div>
+      <div class="box-txt">box-1,echarts东莞地图飞线图测试</div>
     </div>
     <div class="box-1">
-      <div class="charts-content"/>
-      <div class="box-txt">***********box-1**********</div>
+      <div class="charts-content" @dblclick="mapDgTest3()"/>
+      <div class="box-txt">box-1,echarts东莞地图飞线图测试2</div>
     </div>
     <div class="box-1">
-      <div class="charts-content"/>
-      <div class="box-txt">***********box-1*********</div>
+      <div class="charts-content" @dblclick="mapDgTest4"/>
+      <div class="box-txt">flyline</div>
     </div>
     <div class="box-1">
       <div class="charts-content"/>
@@ -251,13 +251,19 @@ export default {
       this.$router.push({ path: '/base' })
     },
     mapTest() {
-      this.$router.push({ path: '/map' })
+      this.$router.push({ path: '/chinaMap' })
     },
     mapDgTest() {
       this.$router.push({ path: '/dgMap' })
     },
     mapDgTest2() {
-      this.$router.push({ path: '/testMap' })
+      this.$router.push({ path: '/dgMapFlyline' })
+    },
+    mapDgTest3() {
+      this.$router.push({ path: '/dgMapFlyline2' })
+    },
+    mapDgTest4() {
+      this.$router.push({ path: '/flyline' })
     }
   }
 }

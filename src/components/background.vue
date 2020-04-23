@@ -49,7 +49,7 @@ export default {
       this.step()
 
       window.onresize = this.resize
-      // this.canvas.onmousemove = this.onMouseMove //屏蔽鼠标移动事件
+      // this.canvas.onmousemove = this.onMouseMove // 屏蔽鼠标移动事件
       this.canvas.ontouchmove = this.onTouchMove
       this.canvas.ontouchend = this.onMouseLeave
       document.onmouseleave = this.onMouseLeave
@@ -185,6 +185,8 @@ export default {
 
         this.velocity.tx = this.velocity.tx + (ox / 100 * this.scale) * (this.touchInput ? 1 : -1)
         this.velocity.ty = this.velocity.ty + (oy / 30 * this.scale) * (this.touchInput ? 1 : -1)
+        this.velocity.tx = 2
+        this.velocity.ty = 2
       }
 
       this.pointerX = x
@@ -213,7 +215,7 @@ export default {
     width: 100%;
     height: 100vh;
     background-color: #000;
-    z-index:-1;
+    z-index:-99;
     background-image: radial-gradient(circle at top right, rgba(121, 68, 154, 0.13),       transparent),
     radial-gradient(circle at 20% 80%, rgba(41, 196, 255, 0.13), transparent);overflow: hidden
   }

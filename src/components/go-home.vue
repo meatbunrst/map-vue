@@ -2,7 +2,7 @@
   <div>
     <a class="home" @click="goHome"/>
     <div class="page-box">
-      <a class="pre" />
+      <a class="pre" @click="goHistory"/>
       <a class="next"/>
     </div>
   </div>
@@ -16,6 +16,9 @@ export default {
   methods: {
     goHome() {
       this.$router.push({ path: '/' })
+    },
+    goHistory() {
+      history.go(-1)
     }
 
   }

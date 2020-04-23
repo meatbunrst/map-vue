@@ -4,10 +4,12 @@
       <ve-map
         :data="chartData"
         :settings="chartSettings"
+        :extend="extend"
         :events="chartEvents"
         :legend-visible="false"
-        height="2500px"
-        width="1600px"/>
+        :tooltip-visible="false"
+        height="2000px"
+        width="1800px"/>
     </div>
     <go-home/>
     <background/>
@@ -24,21 +26,45 @@ export default {
       position: 'china',
       // selectData: true,
       selectedMode: 'single',
-      label: true,
-      itemStyle: {
-        normal: {
-          borderColor: '#11ffff'
-        }
+      label: {
+        show: true,
+        color: '#fff',
+        fontSize: 20
       },
-      aspectScale: 1.2,
+      itemStyle: {
+        borderColor: '#5aa5c5',
+        borderWidth: '0.8',
+        borderType: 'dashed',
+        opacity: 0.5, // 图形透明度
+        areaColor: 'rgba(51, 69, 89, .5)' // 区域颜色
+      },
+      aspectScale: 1.0,
       mapGrid: {
-        left: 30,
-        right: 30,
-        top: 130
-        // bottom: 50
-
+        left: -10,
+        right: -10,
+        top: 100
       },
       zoom: 1.0
+    }
+    this.extend = {
+      series: {
+        emphasis: {
+          label: {
+            show: true,
+            color: '#5aa5c5',
+            fontSize: 25
+          },
+          itemStyle: {
+            borderColor: '#fff',
+            borderWidth: '1.8',
+            borderType: 'dashed',
+            shadowOffsetX: 10,
+            shadowOffsetY: 10,
+            opacity: 0.7, // 图形透明度
+            areaColor: '#33677d' // 区域颜色
+          }
+        }
+      }
     }
     this.chartEvents = {
       click: (v) => {

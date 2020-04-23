@@ -32,19 +32,29 @@ export const constantRouterMap = [
     component: () => import('@/views/base'),
     hidden: false
   }, {
-    path: '/map',
+    path: '/chinaMap',
     meta: { title: '地图测试', noCache: true },
-    component: () => import('@/views/map'),
+    component: () => import('@/views/chinaMap'),
     hidden: false
   }, {
     path: '/dgMap',
-    meta: { title: '东莞地图测试', noCache: true },
+    meta: { title: '东莞地图', noCache: true },
     component: () => import('@/views/dgMap'),
     hidden: false
   }, {
-    path: '/testMap',
+    path: '/dgMapFlyline',
     meta: { title: 'echarts东莞地图测试', noCache: true },
-    component: () => import('@/views/testMap'),
+    component: () => import('@/views/dgMapFlyline'),
+    hidden: false
+  }, {
+    path: '/dgMapFlyline2',
+    meta: { title: 'echarts东莞地图3D测试', noCache: true },
+    component: () => import('@/views/dgMapFlyline2'),
+    hidden: false
+  }, {
+    path: '/flyline',
+    meta: { title: 'flyline', noCache: true },
+    component: () => import('@/views/flyline'),
     hidden: false
   }
   // { path: '*', redirect: '/404', hidden: true }
