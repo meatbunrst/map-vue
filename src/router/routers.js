@@ -56,6 +56,11 @@ export const constantRouterMap = [
     meta: { title: 'flyline', noCache: true },
     component: () => import('@/views/flyline'),
     hidden: false
+  }, {
+    path: '/bmapDemo/bmap',
+    meta: { title: '123', noCache: true },
+    component: () => import('@/views/bmapDemo/bmap'),
+    hidden: false
   }
   // { path: '*', redirect: '/404', hidden: true }
 ]

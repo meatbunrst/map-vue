@@ -37,8 +37,8 @@
       <div class="box-txt">**********box-1**********</div>
     </div>
     <div class="box-1">
-      <div class="charts-content"/>
-      <div class="box-txt">************box-1*********</div>
+      <div class="charts-content" @dblclick="bmapDemo"/>
+      <div class="box-txt">v-charts 百度地图测试</div>
     </div>
     <div class="box-1">
       <div class="charts-content"/>
@@ -232,7 +232,7 @@ export default {
       chartData: {
         columns: ['日期', '访问用户', '下单用户', '下单率'],
         rows: [
-          { 日期: '1/1', 访问用户: 1393, 下单用户: 1093, 下单率: 0.32 },
+          { 日期: '1/1', 访问用户: 1393, 下单用户: , 下单率: 0.32 },
           { 日期: '1/2', 访问用户: 3530, 下单用户: 3230, 下单率: 0.26 },
           { 日期: '1/3', 访问用户: 2923, 下单用户: 2623, 下单率: 0.76 },
           { 日期: '1/4', 访问用户: 1723, 下单用户: 1423, 下单率: 0.49 },
@@ -264,6 +264,9 @@ export default {
     },
     mapDgTest4() {
       this.$router.push({ path: '/flyline' })
+    },
+    bmapDemo() {
+      this.$router.push({ path: '/bmapDemo/bmap' })
     }
   }
 }

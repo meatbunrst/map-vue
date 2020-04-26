@@ -5,8 +5,6 @@
     <go-home/>
   </div>
 </template>
-
-<script src="https://unpkg.com/mapvgl/dist/mapvgl.threelayers.min.js"></script>
 <script>
 import Background from '@/components/background'
 import GoHome from '@/components/go-home'
@@ -15,7 +13,7 @@ export default {
   components: { GoHome, Background },
   data() {
     return {
-      map:''
+      map: ''
     }
   },
   mounted() {
