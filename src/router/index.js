@@ -6,13 +6,14 @@ import { getToken } from '@/utils/auth' // getToken from cookie
 
 NProgress.configure({ showSpinner: false })// NProgress Configuration
 
-const whiteList = ['/login']// no redirect whitelist
+const whiteList = ['/login', '/Demo']// no redirect whitelist
 
 router.beforeEach((to, from, next) => {
   if (to.meta.title) {
     document.title = to.meta.title + ' - ' + Config.webName
   }
   NProgress.start() // start progress bar
+  // next()
   if (getToken()) { // 已登录直接执行
     next()
   } else {

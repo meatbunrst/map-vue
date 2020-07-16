@@ -1,26 +1,17 @@
 <template>
-  <div>
-    <div class="map">
-      <ve-map
-        :data="chartData"
-        :settings="chartSettings"
-        :extend="extend"
-        :events="chartEvents"
-        :legend-visible="false"
-        :tooltip-visible="false"
-        height="2000px"
-        width="1800px"/>
-    </div>
-    <go-home/>
-    <background/>
-  </div>
+  <ve-map
+    :data="chartData"
+    :settings="chartSettings"
+    :extend="extend"
+    :events="chartEvents"
+    :legend-visible="false"
+    :tooltip-visible="false"
+    height="2000px"
+    width="1800px"/>
 </template>
 
 <script>
-import GoHome from '@/components/go-home'
-import Background from '@/components/background'
 export default {
-  components: { Background, GoHome },
   data() {
     this.chartSettings = {
       position: 'china',

@@ -1,3 +1,9 @@
+##es规范webstorm 快捷设置
+file->setting->ESLint   勾选Enable
+file->setting->keymap -> 搜索 fix  找到 ESLint Problems  设置快捷键  鼠标点击一下或者其他
+
+#项目结构 
+##src->views-demo所有的示例 不断补充中
 ##v-charts配置  https://v-charts.js.org/
 ### :extend 所有的配置都可以用这个值重新设置
 若存在extend extend中出现的设置类均为最终设置<br>

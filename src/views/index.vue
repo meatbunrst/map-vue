@@ -7,46 +7,44 @@
       <div class="box-txt">box-1，环比增39.8%，同比降：1.2%。月累计手机上网流量5.6亿MB，环比增18.5%，同比增140.9%。</div>
     </div>
     <div class="box-1">
-      <div class="charts-content">
-        <ve-bar :data="chartData" :grid="grid" :extend="extend"/>
-      </div>
-      <div class="box-txt">box-12014年6月新增市场份额68.6，同比降低1.3PP，新增通信客户数73万，同比减少41万。</div>
-    </div>
-    <div class="box-1" @dblclick="mapTest()">
-      <div class="charts-content"/>
-      <div class="box-txt">box-1，v-charts全国地图测试</div>
-    </div>
-    <div class="box-1">
-      <div class="charts-content" @dblclick="mapDgTest()"/>
-      <div class="box-txt">box-1,v-charts东莞地图下钻测试</div>
-    </div>
-    <div class="box-1">
-      <div class="charts-content" @dblclick="mapDgTest2()"/>
-      <div class="box-txt">box-1,echarts东莞地图飞线图测试</div>
-    </div>
-    <div class="box-1">
-      <div class="charts-content" @dblclick="mapDgTest3()"/>
-      <div class="box-txt">box-1,echarts东莞地图飞线图测试2</div>
-    </div>
-    <div class="box-1">
-      <div class="charts-content" @dblclick="mapDgTest4"/>
-      <div class="box-txt">flyline</div>
+      <div class="charts-content" />
+      <div class="box-txt">box-1</div>
     </div>
     <div class="box-1">
       <div class="charts-content"/>
-      <div class="box-txt">**********box-1**********</div>
-    </div>
-    <div class="box-1">
-      <div class="charts-content" @dblclick="bmapDemo"/>
-      <div class="box-txt">v-charts 百度地图测试</div>
+      <div class="box-txt">box-1</div>
     </div>
     <div class="box-1">
       <div class="charts-content"/>
-      <div class="box-txt">**********box-1*********</div>
+      <div class="box-txt">box-1</div>
+    </div>
+    <div class="box-1">
+      <div class="charts-content" />
+      <div class="box-txt">box-1</div>
+    </div>
+    <div class="box-1">
+      <div class="charts-content"/>
+      <div class="box-txt">box-1</div>
+    </div>
+    <div class="box-1">
+      <div class="charts-content"/>
+      <div class="box-txt"/>
+    </div>
+    <div class="box-1">
+      <div class="charts-content"/>
+      <div class="box-txt">box-1</div>
+    </div>
+    <div class="box-1">
+      <div class="charts-content" />
+      <div class="box-txt">box-1</div>
+    </div>
+    <div class="box-1">
+      <div class="charts-content" />
+      <div class="box-txt">box-1</div>
     </div>
     <div class="box-3">
       <div class="charts-content"/>
-      <div class="box-txt">------</div>
+      <div class="box-txt">*****</div>
     </div>
     <div class="box-3"/>
     <div class="box-2">
@@ -249,24 +247,6 @@ export default {
   methods: {
     mapLoad() {
       this.$router.push({ path: '/base' })
-    },
-    mapTest() {
-      this.$router.push({ path: '/chinaMap' })
-    },
-    mapDgTest() {
-      this.$router.push({ path: '/dgMap' })
-    },
-    mapDgTest2() {
-      this.$router.push({ path: '/dgMapFlyline' })
-    },
-    mapDgTest3() {
-      this.$router.push({ path: '/dgMapFlyline2' })
-    },
-    mapDgTest4() {
-      this.$router.push({ path: '/flyline' })
-    },
-    bmapDemo() {
-      this.$router.push({ path: '/bmapDemo/bmap' })
     }
   }
 }

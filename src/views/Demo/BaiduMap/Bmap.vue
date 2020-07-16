@@ -1,21 +1,23 @@
 <template>
-  <div>
-    <div class="map">
-      <div id="allmap"/>
+  <div class="map">
+    <div>
+      <el-radio-group v-model="methodName" >
+        <el-radio-button label="添加标签" />
+        <el-radio-button label="添加瓦片"/>
+        <el-radio-button label="添加飞线"/>
+        <el-radio-button label="添加热力"/>
+      </el-radio-group>
     </div>
-    <go-home/>
-    <background/>
+    <div id="allmap"/>
   </div>
-
 </template>
 <script>
-import Background from '@/components/background'
-import GoHome from '@/components/go-home'
+
 export default {
   name: 'Bmap',
-  components: { GoHome, Background },
   data() {
     return {
+      methodName: '添加标签'
     }
   },
   mounted() {
@@ -136,9 +138,6 @@ export default {
     position: fixed;
     width: auto;
     height: 500px;
-    margin-top: 200px;
-    margin-left: 10%;
-
   }
   #map_container {
     width: 1000px;

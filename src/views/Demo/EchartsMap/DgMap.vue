@@ -1,28 +1,20 @@
 <template>
-  <div >
-    <div class="map">
-      <ve-map
-        ref="dgMap"
-        :data="chartData"
-        :settings="chartSettings"
-        :legend-visible="false"
-        :tooltip-visible="false"
-        :extend="extend"
-        :events="chartEvents"
-        height="1500px"
-        width="1600px"
-      />
-    </div>
-    <go-home/>
-    <background/>
-  </div>
+  <ve-map
+    ref="dgMap"
+    :data="chartData"
+    :settings="chartSettings"
+    :legend-visible="false"
+    :tooltip-visible="false"
+    :extend="extend"
+    :events="chartEvents"
+    height="1500px"
+    width="1600px"
+  />
 </template>
 
 <script>
-import GoHome from '@/components/go-home'
-import Background from '@/components/background'
 export default {
-  components: { Background, GoHome },
+  name: 'DgMap',
   data() {
     return {
       chartSettings: {},
@@ -108,13 +100,7 @@ export default {
   }
 }
 </script>
-<style scoped>
-  .map{
-    width: 60%;
-    margin-left: 22%;
-    margin-top: 50px;
-    position: fixed;
 
-  }
+<style scoped>
 
 </style>
