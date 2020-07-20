@@ -20,7 +20,7 @@
         <el-submenu index="3">
           <template slot="title"><i class="el-icon-setting"/>百度地图</template>
           <el-menu-item index="3-1" @click="showTitle='百度地图二维'">百度地图二维</el-menu-item>
-          <el-menu-item index="3-2">百度地图三维</el-menu-item>
+          <el-menu-item index="3-2" @click="showTitle='百度地图三维'">百度地图三维</el-menu-item>
         </el-submenu>
 
         <el-submenu index="10">
@@ -45,6 +45,8 @@
 
         <!--百度地图  百度地图二维-->
         <bmap v-show="showTitle==='百度地图二维'"/>
+        <!--百度地图  百度地图三维-->
+        <gl-demo v-show="showTitle==='百度地图三维'"/>
 
         <!--项目的一些测试-->
         <test v-show="showTitle==='面板'"/>
@@ -62,9 +64,10 @@ import ChinaMap from '@/views/Demo/EchartsMap/ChinaMap'
 import Move from '@/views/Demo/EchartsMap/Move'
 import Bmap from '@/views/Demo/BaiduMap/Bmap'
 import Test from '@/views/Demo/Interface/Test'
+import GlDemo from '@/views/Demo/BaiduMap/mapGL/GlDemo'
 export default {
   name: 'Index',
-  components: { Test, Bmap, Move, ChinaMap, DgMap, D3WordCloud },
+  components: { GlDemo, Test, Bmap, Move, ChinaMap, DgMap, D3WordCloud },
   data() {
     return {
       showTitle: '',
